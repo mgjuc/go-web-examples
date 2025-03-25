@@ -1,0 +1,17 @@
+<h1>{{.PageTitle}}</h1>
+<style type="text/css">
+    .done{
+        color: green;
+        text-decoration: line-through
+    }
+</style>
+<ul>
+    {{range .Todos}}
+        {{if .Done}}
+            <li class="done">{{.Title}}</li>
+            <!-- <del></del> 删除线 -->
+        {{else}}
+            <li>{{.Title}}</li>
+        {{end}}
+    {{end}}
+</ul>

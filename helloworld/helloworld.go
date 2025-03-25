@@ -14,6 +14,7 @@ func main() {
 	err := http.ListenAndServe(":80", nil)
 	if err != nil {
 		//panic: listen tcp 127.0.0.1:80: bind: permission denied
+		//80 需要root 权限, 大于1023就不用了
 		panic(err)
 	}
 

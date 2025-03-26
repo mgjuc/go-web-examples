@@ -1,0 +1,21 @@
+<input id="input" type="text"/>
+<button id="send" onclick="send()">Send</button>
+<pre id="output"></pre>
+
+<script>
+  var input = document.getElementById("input");
+  var output = document.getElementById("output");
+  var conn = new WebSocket("ws://localhost:8080/ws");
+  conn.onopen = function(e) {
+    output.innerHTML += "Connection established!<br>";
+  };
+
+  conn.onmessage = function(e){
+    output.innerHTML += "get message:" + e.data + "\n";
+  };
+
+  function send(){
+    conn.send(input.value);
+    input.value = "";
+  } 
+</script>
